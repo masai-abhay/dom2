@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .contenar {
+        height: 700px;
+        width: 40%;
+        margin: auto;
+      }
+
+      #head {
+        border: 1px solid black;
+        background-color: red;
+
+        height: 100px;
+        width: 30%;
+      }
+
+      #min {
+        margin-left: 20px;
+      }
+
+      #max {
+        text-align: end;
+        margin-right: 20px;
+      }
+
+      #top1 {
+        border: 1px solid black;
+        background-color: green;
+        height: 100px;
+        width: 30%;
+        margin-left: auto;
+        margin-top: -120px;
+      }
+
+      #score1 {
+        text-align: center;
+      }
+
+      #score {
+        border: 1px solid black;
+        background-color: gray;
+        color: aliceblue;
+        height: 80px;
+        width: 48%;
+        margin: auto;
+        text-align: center;
+      }
+
+      .cont {
+        height: 350px;
+        width: 45%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 5px;
+        gap: 10px;
+      }
+
+      .cont > button:nth-last-child(1) {
+        background-color: rgb(126, 34, 122);
+        margin-left: 115%;
+        width: 80px;
+        border-radius: 10px;
+      }
+
+      .cont > button:nth-child(1) {
+        background-color: green;
+      }
+
+      .cont > button:nth-child(2) {
+        background-color: orangered;
+      }
+
+      .cont > button:nth-child(3) {
+        background-color: green;
+      }
+
+      .cont > button:nth-child(4) {
+        background-color: orangered;
+      }
+
+      .cont > button:nth-child(5) {
+        background-color: green;
+      }
+
+      .cont > button:nth-child(6) {
+        background-color: orangered;
+      }
+
+      .cont > button:nth-child(7) {
+        background-color: green;
+      }
+
+      .cont > button:nth-child(8) {
+        background-color: orangered;
+      }
+
+      .cont > button:nth-child(9) {
+        background-color: green;
+      }
+
+      #enter {
+        background-color: black;
+        color: aliceblue;
+        height: 60px;
+        width: 48%;
+        margin-left: 160px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contenar">
+      <div id="head">43</div>
+      <div id="min">MIN</div>
+
+      <div id="top1">2019</div>
+      <div id="max">MAX</div>
+
+      <br />
+
+      <div id="score1">score</div>
+      <h1 id="score"></h1>
+      <br />
+
+      <div class="cont">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+      </div>
+
+      <br />
+
+      <button onclick="calculate()" id="enter">ENTER</button>
+    </div>
+  </body>
+
+  <script>
+    let beg = "";
+
+    let btns = document.querySelectorAll(".cont > button"); //chack the value --1
+
+    //for(let i = o; i <btns.length; i++){
+    // btns[i].addEventListener("click", myfunction)}
+
+    btns.forEach(
+      (
+        button //anonamus function use
+      ) =>
+        button.addEventListener("click", function () {
+          let displayscore = document.getElementById("score"); //now next scorebox me value ko show krna --3
+          // displayscore.textContent += " " +button.textContent                //+= " "  number ek sth likhte hai
+
+          beg += button.textContent;
+          displayscore.textContent = beg;
+
+          //console.log(button.textContent)                          //buttons ki value mil gyi console me --2
+        })
+    );
+
+    let enter = document.querySelector("enter");
+    enter.addEventListener("click", function () {
+      head.innerText = calculate(head, top1, beg);
+    });
+
+    function calculate() {
+      //console.log(beg)
+      let min = document.getElementById("head");
+      let max = document.getElementById("top1");
+      console.log(min.textContent, max.textContent);
+      if (Number(beg) < Number(head.textContent)) {
+        head.textContent = beg;
+      } else if ((Number(beg), Number(top1.textContent))) {
+        top1.textContent = beg;
+      }
+    }
+  </script>
+</html>
